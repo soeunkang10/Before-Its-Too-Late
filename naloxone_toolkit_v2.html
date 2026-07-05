@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before It's Too Late — Youth Naloxone Advocacy Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --teal: #0D7377;
+    --teal-light: #14A085;
+    --teal-pale: #EDF7F7;
+    --cream: #FAFAF7;
+    --orange: #E8602C;
+    --orange-pale: #FEF0E8;
+    --white: #FFFFFF;
+    --gray: #6B7280;
+    --border: #E8E8E2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: var(--navy); line-height: 1.6; }
+
+  .cover { background: var(--white); border-bottom: 3px solid var(--navy); padding: 72px 64px 64px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; }
+  .cover-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  .cover-title { font-family: 'Fraunces', serif; font-size: clamp(48px, 7vw, 80px); line-height: 1.0; color: var(--navy); margin-bottom: 20px; }
+  .cover-title em { color: var(--orange); font-style: italic; }
+  .cover-desc { font-size: 17px; color: var(--gray); max-width: 480px; line-height: 1.7; font-weight: 300; }
+  .cover-side { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; min-width: 180px; }
+  .cover-tag { background: var(--navy); color: var(--white); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 14px; border-radius: 4px; white-space: nowrap; }
+  .cover-tag.teal { background: var(--teal); }
+  .cover-tag.orange { background: var(--orange); }
+
+  .voice-box { background: var(--navy); padding: 56px 64px; }
+  .voice-inner { max-width: 720px; }
+  .voice-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 20px; }
+  .voice-quote { font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.55; color: var(--white); margin-bottom: 20px; }
+  .voice-quote em { color: var(--orange); font-style: italic; }
+  .voice-sub { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.75; font-weight: 300; }
+
+  .steps-wrap { padding: 72px 64px; max-width: 1080px; margin: 0 auto; }
+  .steps-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .steps-title { font-family: 'Fraunces', serif; font-size: 38px; color: var(--navy); line-height: 1.2; margin-bottom: 56px; }
+
+  .step-block { display: grid; grid-template-columns: 72px 1fr; position: relative; }
+  .step-block:not(:last-child) { padding-bottom: 52px; }
+  .step-block:not(:last-child)::before { content: ''; position: absolute; left: 35px; top: 68px; bottom: 0; width: 2px; background: var(--border); }
+  .step-num-wrap { padding-top: 4px; display: flex; align-items: flex-start; justify-content: center; }
+  .step-num { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 20px; color: var(--white); flex-shrink: 0; position: relative; z-index: 1; }
+  .c1{background:var(--navy)} .c2{background:var(--teal)} .c3{background:var(--orange)} .c4{background:#2D6A4F} .c5{background:#7B2D8B} .c6{background:#1B4FD8} .c7{background:var(--teal-light)}
+
+  .step-body { padding-left: 28px; }
+  .step-phase { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+  .step-title { font-family: 'Fraunces', serif; font-size: 24px; color: var(--navy); margin-bottom: 10px; line-height: 1.25; }
+  .step-desc { font-size: 15px; color: #4B5563; line-height: 1.75; margin-bottom: 18px; max-width: 620px; font-weight: 300; }
+
+  .action-box { background: var(--white); border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 24px; max-width: 620px; margin-bottom: 14px; }
+  .action-box-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .action-box ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .action-box ul li { font-size: 14px; color: #374151; padding-left: 18px; position: relative; line-height: 1.55; }
+  .action-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
+
+  .erica-tip { background: var(--orange-pale); border-radius: 10px; padding: 16px 20px; max-width: 620px; display: flex; gap: 12px; align-items: flex-start; }
+  .erica-tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .erica-tip-text { font-size: 13.5px; color: #7C2D12; line-height: 1.65; }
+  .erica-tip-text strong { color: #9A3412; font-weight: 600; display: block; margin-bottom: 3px; }
+
+  .proof { background: var(--teal-pale); border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); padding: 64px; }
+  .proof-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .proof-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .proof-title { font-family: 'Fraunces', serif; font-size: 32px; color: var(--navy); margin-bottom: 20px; line-height: 1.2; }
+  .proof-body { font-size: 15px; color: #374151; line-height: 1.8; font-weight: 300; }
+  .proof-body p + p { margin-top: 14px; }
+  .proof-stats { display: flex; flex-direction: column; gap: 20px; }
+  .stat { background: var(--white); border-radius: 12px; padding: 22px 24px; border: 1.5px solid var(--border); }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 44px; color: var(--teal); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+  .resources { padding: 72px 64px; max-width: 1080px; margin: 0 auto; }
+  .resources-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+  .resources-title { font-family: 'Fraunces', serif; font-size: 34px; color: var(--navy); margin-bottom: 36px; }
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .res-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 24px; }
+  .res-name { font-family: 'Fraunces', serif; font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+  .res-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+  .res-link { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--teal); margin-top: 10px; display: block; }
+
+  .closing { background: var(--orange); padding: 72px 64px; text-align: center; }
+  .closing-title { font-family: 'Fraunces', serif; font-size: clamp(36px, 5vw, 56px); color: var(--white); line-height: 1.15; margin-bottom: 18px; }
+  .closing-title em { font-style: italic; color: rgba(255,255,255,0.85); }
+  .closing-sub { font-size: 17px; color: rgba(255,255,255,0.85); max-width: 500px; margin: 0 auto 36px; line-height: 1.7; font-weight: 300; }
+  .closing-credit { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+
+  /* EMAIL TEMPLATE SECTION */
+  .email-section { padding: 72px 64px; background: var(--white); border-top: 2px solid var(--border); }
+  .email-section-inner { max-width: 820px; margin: 0 auto; }
+  .email-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  .email-title { font-family: 'Fraunces', serif; font-size: 34px; color: var(--navy); margin-bottom: 12px; }
+  .email-intro { font-size: 15px; color: var(--gray); line-height: 1.7; font-weight: 300; margin-bottom: 36px; max-width: 620px; }
+  .email-card { background: var(--cream); border: 1.5px solid var(--border); border-radius: 14px; padding: 36px 40px; font-size: 15px; line-height: 1.9; color: #374151; white-space: pre-wrap; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .email-card .placeholder { background: #FEF3C7; color: #92400E; border-radius: 4px; padding: 1px 6px; font-size: 13px; font-weight: 500; }
+  .email-card .note { display: block; font-size: 12px; color: var(--teal); font-style: italic; margin-top: 4px; }
+  .copy-btn { margin-top: 20px; padding: 11px 24px; background: var(--navy); color: var(--white); border: none; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  .copy-btn:hover { background: var(--teal); }
+  .copy-btn.copied { background: #2D6A4F; }
+  .email-tips { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .email-tip-card { background: var(--teal-pale); border-radius: 10px; padding: 18px 20px; }
+  .email-tip-title { font-size: 12px; font-weight: 600; color: var(--teal); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .email-tip-text { font-size: 13px; color: #374151; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .cover { padding: 40px 24px; grid-template-columns: 1fr; }
+    .voice-box { padding: 48px 24px; }
+    .steps-wrap { padding: 48px 24px; }
+    .proof { padding: 48px 24px; }
+    .proof-inner { grid-template-columns: 1fr; gap: 40px; }
+    .resources { padding: 48px 24px; }
+    .res-grid { grid-template-columns: 1fr; }
+    .closing { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div>
+    <div class="cover-eyebrow">Youth Opioid Advocacy Toolkit · 2026</div>
+    <h1 class="cover-title">Before It's<br><em>Too Late</em></h1>
+    <p class="cover-desc">A step-by-step guide for youth who want to do something real about the opioid crisis — built from three years of field work, not theory.</p>
+  </div>
+  <div class="cover-side">
+    <div class="cover-tag">CADCA Mid-Year 2026</div>
+    <div class="cover-tag teal">SAFE Project</div>
+    <div class="cover-tag orange">So Eun Kang</div>
+  </div>
+</div>
+
+<div class="voice-box">
+  <div class="voice-inner">
+    <div class="voice-label">Why I made this</div>
+    <p class="voice-quote">"I started by asking one question at a pharmacy counter: <em>'Do you carry Narcan?'</em> I didn't have a plan. I just wanted to know the answer. Three years later, that question became a district-level policy."</p>
+    <p class="voice-sub">This toolkit is everything I wish someone had handed me when I started. Every step is something I actually did — in Cleveland, in Boston, in my school, and at my school board. If you follow this roadmap, you'll leave with more than awareness. You'll leave ready to change something.</p>
+  </div>
+</div>
+
+<div class="steps-wrap">
+  <div class="steps-eyebrow">The Roadmap</div>
+  <h2 class="steps-title">7 Steps: From Your First Question<br>to Real Policy Change</h2>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c1">1</div></div>
+    <div class="step-body">
+      <div class="step-phase">Start Here</div>
+      <h3 class="step-title">Map Naloxone Access in Your Community</h3>
+      <p class="step-desc">Before you can change anything, you need to know what's actually out there. Visit pharmacies, hospitals, libraries, and public spaces. Document whether naloxone is available, where it's kept, how much it costs, and whether there's any signage. Then put it all on a map.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Visit at least 10 pharmacies — note availability, price, location in store, and signage</li>
+          <li>Check hospitals, libraries, and community centers — look near AED units</li>
+          <li>Create a Google Map with color-coded pins (available / unavailable / hidden)</li>
+          <li>Document price differences — gaps in pricing are powerful advocacy data</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>I visited 80+ pharmacies across Cleveland and Boston. Prices ranged from $44.99 to $130 for the exact same medication. I didn't expect that. That surprise became the data that opened every door.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c2">2</div></div>
+    <div class="step-body">
+      <div class="step-phase">Analyze</div>
+      <h3 class="step-title">Find the Gaps and Turn Data into a Story</h3>
+      <p class="step-desc">Numbers alone don't move people — stories do. Look at your map and find the patterns. Which areas have the least access? Where is naloxone hidden? What does the price gap mean for families who need it most? Turn those patterns into a clear, simple narrative.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Calculate: what % of locations had naloxone visible vs. hidden or unavailable?</li>
+          <li>Overlay your map with county overdose data — your health department often has this publicly</li>
+          <li>Write down 3–5 data points that are easy to say out loud and hard to forget</li>
+          <li>Make one simple visual — a chart or map screenshot — that tells the whole story at a glance</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>When I connected my pharmacy data to Cuyahoga County's overdose numbers — 635 deaths in 2023 — the conversation stopped being abstract. That's when adults started taking me seriously.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c3">3</div></div>
+    <div class="step-body">
+      <div class="step-phase">Document & Publish</div>
+      <h3 class="step-title">Write It Down — Build a Record That Lasts</h3>
+      <p class="step-desc">Publishing your findings gives them credibility and reach. Write for your school paper, submit an opinion piece, enter a writing competition. A public record shows officials you're not just concerned — you're committed.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Write a news article for your school paper with your survey findings</li>
+          <li>Write a personal opinion piece about why naloxone access matters to youth specifically</li>
+          <li>Submit to Best of SNO, Youth Journalism International, or Scholastic Writing Awards</li>
+          <li>Build a simple public website (Google Sites or GitHub Pages) with your map, articles, and data</li>
+          <li>Consider submitting a public comment to an FDA or state health docket — it becomes official record</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>A senior director at SAFE Project independently cited my Beachcomber article in her own FDA comment. I didn't ask her to — she just found it. Publishing creates a trail that others follow, sometimes people you've never even met.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c4">4</div></div>
+    <div class="step-body">
+      <div class="step-phase">Build Allies</div>
+      <h3 class="step-title">Find Prevention Organizations and Connect with Them</h3>
+      <p class="step-desc">You don't have to do this alone — and you'll go further if you don't. Organizations like SAFE Project, CADCA coalitions, and your county health department have resources, networks, and credibility that can amplify everything you're doing. Find them. Show up. Ask how you can help.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Find your county's CADCA coalition at cadca.org/find-a-coalition</li>
+          <li>Look up SAFE Project's Youth VOICE Council — applications open annually</li>
+          <li>Contact your county ADAMHS board (Alcohol, Drug Addiction and Mental Health Services)</li>
+          <li>Go to one meeting or event before you ask for anything — just show up and listen</li>
+          <li>Ask if you can volunteer, co-host an event, or share your research findings</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>Joining SAFE Project's Youth VOICE Council in 10th grade changed everything. That one connection led to the Naloxone Accessibility Challenge, which led to the pharmacy surveys, which led to every step after this.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c5">5</div></div>
+    <div class="step-body">
+      <div class="step-phase">Take Direct Action</div>
+      <h3 class="step-title">Host Community Education Events and Measure Your Impact</h3>
+      <p class="step-desc">This is where research becomes advocacy. Host a session at a library, community center, or your school. Educate people on naloxone — where to find it, how to recognize an overdose, how to respond. Use before-and-after surveys to measure what changed. That data becomes your proof when you talk to policymakers.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Partner with a library, community center, or school club to host a 30–60 min session</li>
+          <li>Create a pre/post survey on Google Forms — keep it short, 5–7 questions</li>
+          <li>Cover: where to find naloxone, how to recognize an overdose, how to use it</li>
+          <li>Contact your county health department for free naloxone kits to distribute</li>
+          <li>Document your results: attendance, % change in awareness, quotes from participants</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>Before our sessions, 90% of participants had never heard of at-home drug disposal options. After, 85% said they planned to act immediately. When you can say "90% didn't know this existed," policymakers listen differently.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c6">6</div></div>
+    <div class="step-body">
+      <div class="step-phase">Escalate</div>
+      <h3 class="step-title">Present a Formal Proposal to Your School or District</h3>
+      <p class="step-desc">Now you have something most students don't: real data, a public record, community partners, and documented impact. Take that to your principal. Then your school board. Come with specific asks, evidence, and a clear plan. Make it easy for them to say yes.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Define your three asks clearly and specifically — e.g., naloxone next to AED units, annual health class module, expert speaker</li>
+          <li>Build a 5–8 slide deck: problem data → your evidence → proposed solution → implementation plan</li>
+          <li>Start with your principal, not the school board — build from smaller wins first</li>
+          <li>Bring your map, survey results, and published articles as supporting materials</li>
+          <li>Prepare responses to objections around cost, liability, and stigma</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>I showed my principal my project website before I said a single word about what I was asking for. I let the map, the data, and the articles speak first. By the time I made the ask, she already understood why it mattered.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num-wrap"><div class="step-num c7">7</div></div>
+    <div class="step-body">
+      <div class="step-phase">Win — Then Build Forward</div>
+      <h3 class="step-title">Secure the Policy and Make It Last</h3>
+      <p class="step-desc">A policy win is not the finish line — it's the starting point. Document everything. Share the news. Train whoever comes after you. Report back to your partner organizations. Then look at how you can expand: to the city level, the state level, and beyond.</p>
+      <div class="action-box">
+        <div class="action-box-label">What to do</div>
+        <ul>
+          <li>Get the approval in writing — request a letter or the official meeting minutes</li>
+          <li>Write a follow-up article announcing the policy win</li>
+          <li>Share results with CADCA, SAFE Project, and any partners who supported you</li>
+          <li>Create a one-page summary another student could use to replicate your model</li>
+          <li>Find someone younger who can carry the work forward when you leave</li>
+        </ul>
+      </div>
+      <div class="erica-tip">
+        <div class="erica-tip-icon">💬</div>
+        <div class="erica-tip-text"><strong>Erica's note</strong>On May 11, 2026, Superintendent Hardis approved both proposals on the spot: naloxone kits adjacent to AED units in every school hallway, and naloxone education added to the annual Health curriculum. He also invited me back to train students again next year. Document everything — even the small moments matter.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="email-section" style="background: var(--cream); border-top: 2px solid var(--border);">
+  <div class="email-section-inner">
+    <div class="email-eyebrow">Step 1 Resource</div>
+    <h2 class="email-title">Naloxone Accessibility Map</h2>
+    <p class="email-intro">This map was built from 80+ pharmacy and community site visits across Cleveland and Boston. Use it as a model for what your own community map could look like — then build one for your area.</p>
+    <div style="border-radius: 14px; overflow: hidden; border: 1.5px solid var(--border); width: 100%; height: 520px; position:relative;">
+      <iframe src="https://www.google.com/maps/d/embed?mid=1eb1Mf02CNZ-yP7Hvfguqtjrv_JKEDrA&ehbc=2E312F" width="100%" height="520" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="email-tips" style="margin-top: 24px;">
+      <div class="email-tip-card">
+        <div class="email-tip-title">How to read this map</div>
+        <div class="email-tip-text">Each pin represents a location visited. Colors indicate availability status — available, unavailable, or naloxone found in an unexpected location like a museum or transit station.</div>
+      </div>
+      <div class="email-tip-card">
+        <div class="email-tip-title">Build your own</div>
+        <div class="email-tip-text">Go to Google My Maps → create a new map → add pins as you visit locations. Use the notes field to record price, exact location in store, and whether signage was present.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="email-section" style="display:none">
+
+    <div style="background: var(--cream); border: 1.5px solid var(--border); border-radius: 14px; padding: 36px 40px; max-width: 820px;">
+
+      <p style="font-size:14px; color:#374151; line-height:1.8; margin-bottom:24px;">Proper and prompt disposal of unused medications in your home can save a life! On behalf of SAFE Project we'd like to thank you for taking this very important step. You can find more information and resources supportive of solutions towards overcoming mental health challenges, substance misuse and the addiction epidemic on our website at: <a href="https://www.safeproject.us/disposal/" style="color:var(--teal);">https://www.safeproject.us/disposal/</a></p>
+
+      <div style="display:flex; flex-direction:column; gap:24px;">
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">1. Question: Why does safe disposal of prescription medications matter?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.75;">Nearly 8.6 million Americans 12 years or older reported misusing prescription opioids in 2023. Findings suggest that household prescription availability is associated with increased odds of opioid overdose for others in the household, even if they do not have their own opioid prescription. A leading source for people aged 12 or older who misused prescription drugs are friends or relatives with <strong>42.3 percent reporting that they obtained the pain relievers from a friend or relative in some way</strong> (i.e., being given them, buying them, or taking them without asking).</p>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">2. Question: Why should I dispose of prescription drugs that I've paid for? What if I need them someday?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.75;">Unused and expired prescription medications create a risk to the people who possess them, their loved ones, and their community. All drugs should be safeguarded; an important part of safeguarding is getting rid of them when they are no longer needed.</p>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">3. Question: What are the risks of having prescription medications available in my home?</p>
+          <ul style="font-size:13px; color:#374151; line-height:1.75; padding-left:20px; margin-top:8px;">
+            <li>Accidental Use</li>
+            <li>Accidental overdose</li>
+            <li>Intentional misuse</li>
+            <li>Health risks – expired drugs may no longer be effective; they can be harmful to the user. Sharing medications can lead to dangerous health consequences due to dosing, mixing with other medications</li>
+            <li>Safety risks – presence of prescription drugs in your home can make your home a target</li>
+            <li>Environmental damage – having a negative impact on water supplies and land if improperly disposed of</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">4. Question: What should I know about the benefit of at-home prescription drug disposal?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.75;">Proper disposal increased from 19% to 92% when patients were provided with an at-home disposal product and education – 2021 study.</p>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">5. Question: Where do I get at-home disposal products?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.75;">At-home disposal products can be purchased online (Amazon, Walmart, etc…), in some retail stores, and are available at some pharmacies and through community health departments and coalitions. Ohio residents can also request Deterra pouches at no cost through Ohio Rx: <a href="https://www.ohiorxdisposal.com/medication-disposal/deterra-bag?ct=2" style="color:var(--teal);">ohiorxdisposal.com</a></p>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">6. Question: How do I use the at-home disposal pouch?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.75;">Open the pouch, placing unused medications inside. Fill the pouch halfway with warm water and wait for 30 seconds (foaming may occur). Seal pouch tightly, gently shake, and dispose of in the normal trash. DO NOT open the pouch again after you have sealed it. <a href="https://deterrasystem.com/resources/deterra-drug-deactivation-disposal-system-videos/" style="color:var(--teal);">Watch how-to videos here.</a></p>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">7. Question: What types of medications can I dispose of with the at-home disposal product?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.75;">Deterra deactivates virtually all organic over the counter and prescription medications, including common pills, patches, liquids, and creams, especially dangerous ones like opioids, stimulants (Adderall, Ritalin), and depressants (Xanax, Valium, Ambien). Commonly prescribed opioids: Codeine, Hydrocodone, Hydromorphone, Meperidine, Methadone, Morphine, Oxycodone, Oxymorphone, Pethidine. Note: Deterra will not absorb biologics, inorganic medications, or leaf marijuana.</p>
+        </div>
+
+        <div style="background:var(--white); border-radius:10px; padding:24px; border:1.5px solid var(--border);">
+          <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:10px;">8. Question: How many pills/liquids/patches can be disposed of with the pouches?</p>
+          <ul style="font-size:13px; color:#374151; line-height:1.75; padding-left:20px; margin-top:8px;">
+            <li>Small Pouch (SP): 15 pills / 2 oz liquid / 2 patches</li>
+            <li>Medium Pouch (MP): 45 pills / 6 oz liquid / 6 patches</li>
+            <li>Large Pouch (LP): 90 pills / 12 oz liquid / 12 patches</li>
+          </ul>
+          <p style="font-size:13px; color:#374151; margin-top:10px;">More questions? Visit <a href="https://deterrasystem.com/faqs/" style="color:var(--teal);">deterrasystem.com/faqs</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="email-section" style="background: var(--cream); border-top: 2px solid var(--border);">
+  <div class="email-section-inner">
+    <div class="email-eyebrow">Step 5 Resource · Data Collection</div>
+    <h2 class="email-title">Safe Drug Disposal Surveys</h2>
+    <p class="email-intro">Use these pre and post surveys at your community education events to measure impact. Collect before and after your session — the data you gather becomes your proof when talking to policymakers.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:28px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:14px;">Pre-Education Survey</div>
+        <p style="font-size:12px; color:var(--gray); margin-bottom:20px; font-style:italic;">To be completed before receiving the pouch and education</p>
+
+        <div style="display:flex; flex-direction:column; gap:18px;">
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">1. Do you currently have unused or expired prescription medications in your home?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre1" disabled> Yes</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre1" disabled> No</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre1" disabled> Not sure</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">2. How do you usually dispose of unused or expired medications?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre2" disabled> Keep them "just in case"</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre2" disabled> Throw them in the trash</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre2" disabled> Flush them down the toilet</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre2" disabled> Take them to a pharmacy or take-back event</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre2" disabled> I have never disposed of medications</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">3. Did you know that many people who misuse prescription drugs obtain them from friends or relatives?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre3" disabled> Yes</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre3" disabled> No</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">4. How confident do you feel about knowing how to safely dispose of prescription medications?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre4" disabled> Not confident</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre4" disabled> Slightly confident</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre4" disabled> Moderately confident</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre4" disabled> Very confident</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">5. Before today, were you aware that at-home drug disposal products exist?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre5" disabled> Yes</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="pre5" disabled> No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:28px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--orange); margin-bottom:14px;">Post-Education Survey</div>
+        <p style="font-size:12px; color:var(--gray); margin-bottom:20px; font-style:italic;">To be completed after receiving the pouch and education</p>
+
+        <div style="display:flex; flex-direction:column; gap:18px;">
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">1. After today, how well do you understand why safe medication disposal matters?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post1" disabled> Not well</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post1" disabled> Somewhat well</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post1" disabled> Well</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post1" disabled> Very well</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">2. Do you understand which types of medications can be disposed of using the pouch?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post2" disabled> Yes</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post2" disabled> Somewhat</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post2" disabled> No</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">3. How confident do you now feel about using the drug-disposal pouch correctly?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post3" disabled> Not confident</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post3" disabled> Somewhat confident</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post3" disabled> Confident</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post3" disabled> Very confident</label>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:8px;">4. Do you plan to use the disposal pouch you received today?</p>
+            <div style="display:flex; flex-direction:column; gap:4px; padding-left:12px;">
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post4" disabled> Yes, immediately</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post4" disabled> Yes, within the next few weeks</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post4" disabled> Maybe</label>
+              <label style="font-size:13px; color:#374151; display:flex; align-items:center; gap:8px;"><input type="radio" name="post4" disabled> No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="email-section">
+  <div class="email-section-inner">
+    <div class="email-eyebrow">Template · Step 4 Resource</div>
+    <h2 class="email-title">Email Template: Reaching Out to Host a Campaign</h2>
+    <p class="email-intro">Use this template when you want to contact a library, community center, school, or local organization to request permission to host a naloxone education event. Fill in the highlighted fields with your own information.</p>
+
+    <div class="email-card" id="email-template">Subject: Request to Host a Community Naloxone Education Event
+
+Hello,
+
+My name is <span class="placeholder">[Your Name]</span> and I am a <span class="placeholder">[grade level, e.g. 11th grade]</span> student at <span class="placeholder">[Your High School Name]</span>. I visited the <span class="placeholder">[location name, e.g. Beachwood Public Library]</span> to inquire about hosting a campaign educating community members about naloxone access and opioid overdose response. Naloxone is a life-saving medication that can reverse an opioid overdose, and many people in our community are unaware of where to find it or how to use it.
+
+I work with an organization called <span class="placeholder">[Organization Name, e.g. SAFE Project]</span>, which aims to <span class="placeholder">[purpose, e.g. end the addiction fatality epidemic through prevention and community action]</span>. <span class="placeholder">[Organization Name]</span> has provided me with educational materials and is supporting me throughout this initiative.
+<span class="note">↑ Remove this paragraph if you are not working with an organization.</span>
+I am not fully familiar with how <span class="placeholder">[location name]</span> typically hosts events like this, but what I had in mind was setting up a brief informational table where I could share educational materials about naloxone — including where to find it, how to recognize an overdose, and how to respond. I would also like to distribute free naloxone resources to anyone interested.
+
+I would prefer <span class="placeholder">[your preferred dates and times, e.g. weekend afternoons in February]</span>, but I am flexible and happy to adjust to whatever works best for your schedule. <span class="placeholder">[A second month option, e.g. March]</span> also works if February is not feasible.
+
+Please let me know if you need any additional information. Thank you so much for your time and for supporting this initiative in our community.
+
+Sincerely,
+<span class="placeholder">[Your Name]</span>
+<span class="placeholder">[Any credentials, e.g. Ohio Representative, SAFE Project Youth VOICE Council]</span></div>
+
+    <button class="copy-btn" id="copyBtn" onclick="copyEmail()">Copy Email Template</button>
+
+    <div class="email-tips">
+      <div class="email-tip-card">
+        <div class="email-tip-title">Who to contact</div>
+        <div class="email-tip-text">Look for a "programs coordinator," "community events manager," or "branch manager" on the organization's website. Avoid generic contact forms — find a real name and email if possible.</div>
+      </div>
+      <div class="email-tip-card">
+        <div class="email-tip-title">What to attach</div>
+        <div class="email-tip-text">Include a one-paragraph description of your event, a link to your project website if you have one, and any organizational affiliation letters. Keep it simple — one attachment maximum.</div>
+      </div>
+      <div class="email-tip-card">
+        <div class="email-tip-title">Following up</div>
+        <div class="email-tip-text">If you don't hear back within one week, send a short follow-up: "I wanted to follow up on my email from [date]. I'm happy to answer any questions — thank you for your consideration."</div>
+      </div>
+      <div class="email-tip-card">
+        <div class="email-tip-title">Erica's tip</div>
+        <div class="email-tip-text">I always mentioned my organization affiliation in the first paragraph. It immediately shows you're not acting alone — and organizations like SAFE Project carry real credibility with event coordinators.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="email-section" style="background: var(--white); border-top: 2px solid var(--border);">
+  <div class="email-section-inner">
+    <div class="email-eyebrow">Step 5 Resource · Health Class Training</div>
+    <h2 class="email-title">Opioid Overdose Response Training</h2>
+    <p class="email-intro">This is the presentation used to train 150 BHS students during Health class. Use it as a template for your own school training session.</p>
+
+    <div style="display:flex; flex-direction:column; gap:20px;">
+
+      <div style="background:var(--cream); border:1.5px solid var(--border); border-radius:14px; padding:28px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:14px;">Opening Question</div>
+        <p style="font-size:15px; font-weight:600; color:var(--navy); line-height:1.6;">If you saw someone lying unresponsive on the ground with blue lips and cold skin, what would you do first?</p>
+      </div>
+
+      <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:28px;">
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:12px;">Opioid Overdose Symptoms</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:var(--cream); border-radius:6px;">Non-responsive</div>
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:var(--cream); border-radius:6px;">Slow/stopped breathing</div>
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:#FEF0E8; border-radius:6px; font-weight:600;">Blue/gray lips and fingernails</div>
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:#FEF0E8; border-radius:6px; font-weight:600;">Pale/ashen and clammy skin</div>
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:var(--cream); border-radius:6px;">Limp body</div>
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:var(--cream); border-radius:6px;">Vomiting/gurgling</div>
+          <div style="font-size:13px; color:#374151; padding:6px 10px; background:var(--cream); border-radius:6px;">Weak or no pulse</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:24px;">
+          <p style="font-size:13px; font-weight:700; color:var(--teal); margin-bottom:12px;">If you get a response:</p>
+          <ul style="font-size:13px; color:#374151; line-height:1.75; padding-left:16px;">
+            <li>Lay them to their side to prevent choking if they vomit</li>
+            <li>Call 911 if anything is concerning: breathing slows down or they become less responsive</li>
+          </ul>
+        </div>
+        <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:24px;">
+          <p style="font-size:13px; font-weight:700; color:var(--orange); margin-bottom:12px;">If you DON'T get a response:</p>
+          <ul style="font-size:13px; color:#374151; line-height:1.75; padding-left:16px;">
+            <li>Move the person to a stable, horizontal, face-up position. Tilt head back to create a clear airway.</li>
+            <li>Call 911 (explain the situation and symptoms!)</li>
+            <li>Follow the next steps — use naloxone</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--navy); border-radius:14px; padding:28px; color:var(--white);">
+        <p style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--teal-light); margin-bottom:14px;">How to Use Naloxone</p>
+        <div style="display:grid; grid-template-columns:1fr auto; gap:20px; align-items:start;">
+          <div>
+            <ol style="font-size:14px; color:rgba(255,255,255,0.9); line-height:1.9; padding-left:18px;">
+              <li>Peel open the first dose of naloxone.</li>
+              <li>Hold the nasal spray correctly (thumb on bottom, two fingers on nozzle).</li>
+              <li>Insert the applicator into a nostril.</li>
+              <li>Press the plunger firmly with your thumb.</li>
+            </ol>
+          </div>
+          <div style="background:rgba(232,96,44,0.2); border:2px solid var(--orange); border-radius:10px; padding:16px; text-align:center; min-width:180px;">
+            <p style="font-size:12px; font-weight:700; color:var(--orange); line-height:1.5;">DO NOT TEST THE DEVICE BEFORE USING! THERE ARE ONLY 2 SINGLE-DOSES IN ONE BOX.</p>
+          </div>
+        </div>
+        <div style="margin-top:16px; background:rgba(255,255,255,0.08); border-radius:10px; padding:16px;">
+          <p style="font-size:13px; color:rgba(255,255,255,0.9); font-weight:600;">IF THERE IS NO REACTION WITHIN 2-3 MINUTES:</p>
+          <p style="font-size:13px; color:rgba(255,255,255,0.75); margin-top:4px;">Administer second dose of naloxone into the other nostril!</p>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+        <div style="background:var(--cream); border-radius:10px; padding:18px; border:1.5px solid var(--border);">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:6px;">TRUE OR FALSE?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.6;">Naloxone is <strong>dangerous</strong> if used on someone who doesn't need it.</p>
+          <p style="font-size:12px; color:var(--teal); font-weight:600; margin-top:8px;">FALSE — it has no effect if opioids aren't present.</p>
+        </div>
+        <div style="background:var(--cream); border-radius:10px; padding:18px; border:1.5px solid var(--border);">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:6px;">TRUE OR FALSE?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.6;">There is an <strong>age requirement</strong> to carry naloxone.</p>
+          <p style="font-size:12px; color:var(--teal); font-weight:600; margin-top:8px;">FALSE — no minimum age requirement.</p>
+        </div>
+        <div style="background:var(--cream); border-radius:10px; padding:18px; border:1.5px solid var(--border);">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:6px;">TRUE OR FALSE?</p>
+          <p style="font-size:13px; color:#374151; line-height:1.6;">Naloxone is available at <strong>our school</strong>.</p>
+          <p style="font-size:12px; color:var(--orange); font-weight:600; margin-top:8px;">Update this answer for your own school!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="email-section" style="background: var(--cream); border-top: 2px solid var(--border);">
+  <div class="email-section-inner">
+    <div class="email-eyebrow">Step 6 Resource · Policy Proposal Presentation</div>
+    <h2 class="email-title">Strengthening Opioid Overdose Prevention in Beachwood Schools</h2>
+    <p class="email-intro">This is the policy proposal presentation delivered to the Beachwood Board of Education on May 11, 2026. Both proposals were approved on the spot. Use it as a model for your own policy proposal presentation.</p>
+
+    <div style="display:flex; flex-direction:column; gap:20px;">
+
+      <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:28px;">
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:14px;">Why This Matters</p>
+        <ul style="font-size:13px; color:#374151; line-height:1.85; padding-left:16px;">
+          <li>Over <strong>100,000 overdose deaths</strong> occur each year in the United States. (CDC)</li>
+          <li><strong>Opioids are the leading</strong> cause, involving over <strong>60%</strong> of those deaths. (CDC)</li>
+          <li>Overdoses can occur anywhere, including <strong>schools</strong> and public spaces.</li>
+          <li>In 2023, <strong>708 adolescents died</strong> from drug overdoses, with a majority involving opioids like <strong>fentanyl</strong>. (CDC)</li>
+        </ul>
+      </div>
+
+      <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:28px;">
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:14px;">Naloxone Accessibility Data — 75+ pharmacies, retail stores, and public spaces across Cleveland and Boston</p>
+        <p style="font-size:13px; color:#374151; line-height:1.75; margin-bottom:12px;">Naloxone is available at many pharmacies, but it is often not clearly visible and sometimes locked or restricted.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="background:var(--cream); border-radius:8px; padding:14px;">
+            <p style="font-size:12px; font-weight:600; color:var(--teal); margin-bottom:4px;">Why visibility works</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.7; padding-left:14px;">
+              <li>Visibility builds recognition</li>
+              <li>Recognition drives action in emergencies</li>
+              <li>Repeated exposure increases familiarity</li>
+              <li>People are more likely to use what they recognize</li>
+            </ul>
+          </div>
+          <div style="background:var(--cream); border-radius:8px; padding:14px;">
+            <p style="font-size:12px; font-weight:600; color:var(--teal); margin-bottom:4px;">Real examples found in field research</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.7; padding-left:14px;">
+              <li>NaloxBox above AED — Boston Museum of Science</li>
+              <li>Naloxone inside AED cabinet — Case Western Reserve University</li>
+              <li>Naloxone box beneath AED kit — Hawken Upper School</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div style="background:var(--navy); border-radius:14px; padding:24px; color:var(--white);">
+          <p style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--teal-light); margin-bottom:10px;">Proposal 1: Awareness</p>
+          <p style="font-size:14px; font-weight:600; color:var(--white); margin-bottom:10px;">Install wall-mounted naloxone kits at the high school</p>
+          <ul style="font-size:13px; color:rgba(255,255,255,0.8); line-height:1.75; padding-left:14px;">
+            <li>Place in main hallways and in front of nurse's office</li>
+            <li>Bright, visible design</li>
+            <li>Clear, simple instructions or QR code</li>
+            <li>No lock — immediately accessible</li>
+          </ul>
+        </div>
+        <div style="background:var(--teal); border-radius:14px; padding:24px; color:var(--white);">
+          <p style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:10px;">Proposal 2: Education</p>
+          <p style="font-size:14px; font-weight:600; color:var(--white); margin-bottom:10px;">Integrate into health curriculum annually</p>
+          <ul style="font-size:13px; color:rgba(255,255,255,0.85); line-height:1.75; padding-left:14px;">
+            <li>Every student learns: overdose signs, response steps, naloxone use</li>
+            <li>Delivered during the substance use unit</li>
+            <li>Expand to middle school over time</li>
+            <li>This should be a system, not a one-time event</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--orange-pale); border:1.5px solid #FBBF9C; border-radius:14px; padding:24px;">
+        <p style="font-size:13px; font-weight:700; color:#9A3412; margin-bottom:8px;">But won't this encourage more substance use?</p>
+        <p style="font-size:13px; color:#7C2D12; line-height:1.75;">No. Naloxone is used when someone is experiencing an overdose and cannot breathe, just like CPR is used when someone's heart has stopped. It is a life-saving response, not an encouragement of risky behavior.</p>
+      </div>
+
+      <div style="background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:24px;">
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:12px;">What can be gained from this?</p>
+        <ul style="font-size:13px; color:#374151; line-height:1.85; padding-left:16px;">
+          <li>Lives can be saved</li>
+          <li>Stigma is broken, creating a culture of awareness</li>
+          <li>Prepares students to become capable responders</li>
+          <li><strong>Beachwood can become a model district in substance use prevention.</strong></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div style="display:none">
+
+    <div style="background:var(--cream); border:1.5px solid var(--border); border-radius:14px; padding:36px 40px; display:flex; flex-direction:column; gap:24px;">
+
+      <div style="border-bottom:1.5px solid var(--border); padding-bottom:20px;">
+        <p style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:6px;">Policy Proposal · Beachwood City School District · May 11, 2026</p>
+        <p style="font-size:13px; color:#374151; line-height:1.7;"><strong>TO:</strong> Beachwood Board of Education<br><strong>FROM:</strong> So Eun Kang & SAY/SADD Club, BHS Class of 2027<br><strong>ENDORSED BY:</strong> SAFE Project</p>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:12px;">Why This Matters: The Case for Action</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div style="background:var(--white); border-radius:10px; padding:16px; border:1.5px solid var(--border);">
+            <p style="font-size:12px; font-weight:600; color:var(--teal); margin-bottom:8px;">National & Local Crisis</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.75; padding-left:14px;">
+              <li>80,000+ overdose deaths per year in the U.S.</li>
+              <li>Opioids account for over 60% of those deaths (CDC)</li>
+              <li>In 2023, 708 adolescents died from drug overdoses, the majority involving opioids (CDC WONDER data)</li>
+              <li>Fentanyl drove 76% of adolescent drug fatalities in 2023 (CDC WONDER data)</li>
+              <li>Cuyahoga County recorded 635 overdose deaths in 2023 (Cuyahoga County Board of Health)</li>
+              <li>Two-thirds of fatal overdoses have a bystander present. Naloxone is used in only 30% of those cases (AMA, 2024)</li>
+            </ul>
+          </div>
+          <div style="background:var(--white); border-radius:10px; padding:16px; border:1.5px solid var(--border);">
+            <p style="font-size:12px; font-weight:600; color:var(--teal); margin-bottom:8px;">Credentials</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.75; padding-left:14px;">
+              <li>Opioid research at Case Western Reserve University (NIH/NIDA-funded) for 3 years</li>
+              <li>Ohio Representative for the SAFE Project Youth VOICE Council & CADCA National Youth Council</li>
+              <li>SAY Leadership Council Co-President</li>
+              <li>Naloxone accessibility mapping across 75+ locations in Cleveland and Boston</li>
+              <li>Educated 150+ students on naloxone and safe drug disposal</li>
+              <li>Distributed 100+ drug disposal pouches and educated 87+ community members</li>
+              <li>FDA public comment submitted and accepted on official docket</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:12px;">Field Research: Naloxone Accessibility Data</p>
+        <p style="font-size:13px; color:#374151; line-height:1.75; margin-bottom:12px;">I visited 75+ pharmacies, retail stores, and public spaces across Cleveland and Boston, collecting detailed data on price, location, signage, prescription options, brand, and visibility. Key finding: naloxone is available at pharmacies, but it is often not clearly visible, and sometimes locked or restricted. A life-saving medication is only effective if it is immediately accessible.</p>
+        <div style="background:var(--white); border-radius:10px; padding:16px; border:1.5px solid var(--border);">
+          <p style="font-size:12px; font-weight:600; color:var(--navy); margin-bottom:8px;">The Visibility Problem</p>
+          <ul style="font-size:12px; color:#374151; line-height:1.75; padding-left:14px;">
+            <li>The majority of CVS locations in Cleveland carried Narcan, but placement was inconsistent and often hidden; some pharmacy technicians could not locate it without my help</li>
+            <li>Price ranged from $44.99 to $130 depending on brand and location</li>
+            <li>Boston Museum of Science: NaloxBox mounted above an AED kit</li>
+            <li>Case Western Reserve University: naloxone inside an AED cabinet next to a frequently used elevator</li>
+            <li>Hawken Upper School: naloxone box located beneath AED kit</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:12px;">Our Two Proposals</p>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div style="background:var(--white); border-left:4px solid var(--navy); border-radius:0 10px 10px 0; padding:20px 24px;">
+            <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:8px;">Proposal 1: Awareness — Wall-Mounted Naloxone Kits</p>
+            <p style="font-size:13px; color:#374151; line-height:1.75; margin-bottom:10px;">Install wall-mounted naloxone kits at Beachwood High School in high-visibility locations.</p>
+            <p style="font-size:12px; font-weight:600; color:var(--gray); margin-bottom:4px;">Placement:</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.7; padding-left:14px; margin-bottom:10px;">
+              <li>Main hallways where students and staff pass daily</li>
+              <li>In front of the nurse's office</li>
+              <li>Adjacent to existing AED/emergency kits</li>
+            </ul>
+            <p style="font-size:12px; font-weight:600; color:var(--gray); margin-bottom:4px;">Supporting Evidence:</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.7; padding-left:14px;">
+              <li>AMA adopted formal policy: AED-adjacent naloxone in all public locations (June 2024)</li>
+              <li>HHS & GSA: joint federal recommendation for AED + naloxone co-location (Dec. 2023)</li>
+              <li>Dublin City Schools (2016) and Akron Public Schools (2017): Ohio precedent established</li>
+              <li>Free naloxone available through Ohio's Project DAWN</li>
+            </ul>
+          </div>
+          <div style="background:var(--white); border-left:4px solid var(--teal); border-radius:0 10px 10px 0; padding:20px 24px;">
+            <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:8px;">Proposal 2: Education — Annual Health Classes Module</p>
+            <p style="font-size:13px; color:#374151; line-height:1.75; margin-bottom:10px;">Integrate a naloxone and opioid awareness module into the existing substance use unit of BHS Health classes, delivered annually to all students.</p>
+            <p style="font-size:12px; font-weight:600; color:var(--gray); margin-bottom:4px;">Every student learns:</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.7; padding-left:14px; margin-bottom:10px;">
+              <li>How to recognize the signs of an opioid overdose</li>
+              <li>How to respond: call 911, rescue breathing, recovery position</li>
+              <li>How to administer Narcan nasal spray step by step</li>
+            </ul>
+            <p style="font-size:12px; font-weight:600; color:var(--gray); margin-bottom:4px;">Evidence:</p>
+            <ul style="font-size:12px; color:#374151; line-height:1.7; padding-left:14px;">
+              <li>8.58× greater odds of overdose recovery with bystander naloxone training (NIH meta-analysis)</li>
+              <li>35 states have authorized educational settings to carry and administer naloxone</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:12px;">Legal Framework</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="background:var(--white); border-radius:10px; padding:14px 18px; border:1.5px solid var(--border);">
+            <p style="font-size:12px; font-weight:600; color:var(--navy); margin-bottom:4px;">Ohio HB 57 — Effective January 19, 2026</p>
+            <p style="font-size:12px; color:#374151; line-height:1.65;">Authorizes Ohio school districts to obtain, store, and administer overdose-reversal medication. Requires a written policy covering storage, staff training, and emergency response.</p>
+          </div>
+          <div style="background:var(--white); border-radius:10px; padding:14px 18px; border:1.5px solid var(--border);">
+            <p style="font-size:12px; font-weight:600; color:var(--navy); margin-bottom:4px;">AMA Policy (June 2024)</p>
+            <p style="font-size:12px; color:#374151; line-height:1.65;">The American Medical Association formally adopted a policy supporting AED-adjacent naloxone in all public locations and called on schools specifically to increase access and education.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--navy); border-radius:14px; padding:28px; color:var(--white);">
+        <p style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--teal-light); margin-bottom:14px;">Formal Request</p>
+        <p style="font-size:14px; color:rgba(255,255,255,0.9); line-height:1.75; margin-bottom:16px;">We respectfully request that the Beachwood City School District:</p>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="background:rgba(255,255,255,0.08); border-radius:8px; padding:14px 18px; display:flex; gap:14px;">
+            <span style="font-family:'Space Mono',monospace; font-size:16px; color:var(--orange); flex-shrink:0;">1</span>
+            <p style="font-size:13px; color:rgba(255,255,255,0.85); line-height:1.65;">Consider installation of wall-mounted naloxone kits in main hallways and adjacent to AED/emergency units at BHS, consistent with Ohio HB 57 protocols.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); border-radius:8px; padding:14px 18px; display:flex; gap:14px;">
+            <span style="font-family:'Space Mono',monospace; font-size:16px; color:var(--orange); flex-shrink:0;">2</span>
+            <p style="font-size:13px; color:rgba(255,255,255,0.85); line-height:1.65;">Adopt an annual naloxone and opioid awareness module in the Health curriculum's substance use unit, beginning 2026-2027, with expansion to middle school.</p>
+          </div>
+        </div>
+        <p style="font-size:13px; color:rgba(255,255,255,0.65); margin-top:16px; line-height:1.7;">We are prepared to assist with implementation at every step, including curriculum design, sourcing naloxone boxes at no cost through SAFE Project, and communication. Beachwood can become a model district in substance use prevention.</p>
+      </div>
+
+      <div style="background:var(--white); border-radius:14px; padding:24px; border:1.5px solid var(--border);">
+        <p style="font-size:12px; font-weight:600; color:var(--gray); margin-bottom:10px; font-family:'Space Mono',monospace; letter-spacing:1px; text-transform:uppercase;">Submitted by</p>
+        <p style="font-size:13px; color:var(--navy); line-height:1.85;"><strong>So Eun Kang</strong><br>News Editor, The Beachcomber<br>Ohio Representative, SAFE Project Youth VOICE Council<br>Member, CADCA National Youth Council — 1 of 15 selected nationally<br>Researcher for 3 years, CWRU Levine Lab — NIH/NIDA (Grant 1 P30 DA054557)<br>Beachwood High School, Class of 2027</p>
+        <p style="font-size:13px; color:var(--gray); margin-top:12px;">In partnership with SAY/SADD Club, Beachwood High School<br>Endorsed by SAFE Project — Jeff Horwitz, CEO & Ronna Yablonski, Senior Director of Prevention</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="closing">
+  <h2 class="closing-title">You don't need permission.<br><em>You just need Step 1.</em></h2>
+  <p class="closing-sub">Every policy change starts with one person who decided to pay attention. You already have everything you need. Start by walking into a pharmacy and asking a question.</p>
+  <div class="closing-credit">So Eun Kang · CADCA National Youth Council · SAFE Project Youth VOICE Council · 2026</div>
+</div>
+
+<script>
+function copyEmail() {
+  const card = document.getElementById('email-template');
+  const text = card.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy Email Template';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
