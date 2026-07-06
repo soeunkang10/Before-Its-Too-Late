@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before It's Too Late — Access the Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #FAFAF7;
+    color: #0B1F3A;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1.5px solid #E8E8E2;
+    border-radius: 20px;
+    max-width: 520px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+  }
+
+  .card-header {
+    background: #0B1F3A;
+    padding: 36px 40px 32px;
+  }
+
+  .card-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #14A085;
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .card-title em { color: #E8602C; font-style: italic; }
+
+  .card-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .card-body {
+    padding: 36px 40px 40px;
+  }
+
+  .form-intro {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.65;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .form-intro strong { color: #0B1F3A; font-weight: 500; }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .field label span {
+    color: #E8602C;
+    margin-left: 2px;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #E8E8E2;
+    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    color: #0B1F3A;
+    background: #FAFAF7;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .field input:focus,
+  .field select:focus {
+    border-color: #0D7377;
+    background: #ffffff;
+  }
+
+  .field input::placeholder { color: #9CA3AF; }
+
+  .select-wrap {
+    position: relative;
+  }
+
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+    pointer-events: none;
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #E8602C;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.2px;
+  }
+
+  .submit-btn:hover { background: #D04E1E; transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+
+  .privacy-note {
+    text-align: center;
+    font-size: 11.5px;
+    color: #9CA3AF;
+    margin-top: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* SUCCESS STATE */
+  .success-screen {
+    display: none;
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: #D1FAE5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+  }
+
+  .success-title {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: #0B1F3A;
+    margin-bottom: 10px;
+  }
+
+  .success-sub {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .toolkit-btn {
+    display: inline-block;
+    padding: 13px 32px;
+    background: #0B1F3A;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .toolkit-btn:hover { background: #0D7377; }
+
+  /* ERROR */
+  .field-error {
+    font-size: 11px;
+    color: #DC2626;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .field input.error { border-color: #DC2626; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-eyebrow">Youth Opioid Advocacy Toolkit · 2026</div>
+    <h1 class="card-title">Before It's<br><em>Too Late</em></h1>
+    <p class="card-subtitle">A step-by-step roadmap from naloxone mapping to district-level policy change.</p>
+  </div>
+
+  <div class="card-body">
+    <div id="form-section">
+      <p class="form-intro">Enter your information below to access the free toolkit. This helps us understand <strong>who is using this resource</strong> and how to improve it.</p>
+
+      <div class="field">
+        <label>Full Name <span>*</span></label>
+        <input type="text" id="name" placeholder="e.g. Jane Smith">
+        <div class="field-error" id="name-error">Please enter your name.</div>
+      </div>
+
+      <div class="field">
+        <label>School Name <span>*</span></label>
+        <input type="text" id="school" placeholder="e.g. Lincoln High School">
+        <div class="field-error" id="school-error">Please enter your school name.</div>
+      </div>
+
+      <div class="field">
+        <label>State / Country <span>*</span></label>
+        <input type="text" id="location" placeholder="e.g. Ohio, USA">
+        <div class="field-error" id="location-error">Please enter your state or country.</div>
+      </div>
+
+      <div class="field">
+        <label>Grade / Year <span>*</span></label>
+        <div class="select-wrap">
+          <select id="grade">
+            <option value="" disabled selected>Select your grade</option>
+            <option>9th Grade</option>
+            <option>10th Grade</option>
+            <option>11th Grade</option>
+            <option>12th Grade</option>
+            <option>College / University</option>
+            <option>Adult / Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field-error" id="grade-error">Please select your grade.</div>
+      </div>
+
+      <div class="field">
+        <label>Email Address <span>*</span></label>
+        <input type="email" id="email" placeholder="e.g. jane@school.edu">
+        <div class="field-error" id="email-error">Please enter a valid email address.</div>
+      </div>
+
+      <div class="field">
+        <label>How did you hear about this toolkit? <span>*</span></label>
+        <div class="select-wrap">
+          <select id="source">
+            <option value="" disabled selected>Select an option</option>
+            <option>CADCA Conference</option>
+            <option>SAFE Project</option>
+            <option>Social Media</option>
+            <option>QR Code</option>
+            <option>A teacher or advisor</option>
+            <option>A friend or peer</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field-error" id="source-error">Please select an option.</div>
+      </div>
+
+      <button class="submit-btn" onclick="handleSubmit()">Access the Toolkit →</button>
+
+      <p class="privacy-note">Your information will only be used to track toolkit distribution and improve future resources. It will never be shared or sold.</p>
+    </div>
+
+    <div class="success-screen" id="success-section">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">You're all set!</h2>
+      <p class="success-sub">Thank you for downloading the <em>Before It's Too Late</em> toolkit. Every person who uses this resource helps expand naloxone access in their community.</p>
+      <a href="naloxone_toolkit_v2.html" class="toolkit-btn">Open the Toolkit →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const FORMSPREE_URL = "https://formspree.io/f/xqevnwvz";
+
+  function validate() {
+    let valid = true;
+    const fields = [
+      { id: 'name', errorId: 'name-error', check: v => v.trim().length > 0 },
+      { id: 'school', errorId: 'school-error', check: v => v.trim().length > 0 },
+      { id: 'location', errorId: 'location-error', check: v => v.trim().length > 0 },
+      { id: 'grade', errorId: 'grade-error', check: v => v !== '' },
+      { id: 'email', errorId: 'email-error', check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+      { id: 'source', errorId: 'source-error', check: v => v !== '' },
+    ];
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const err = document.getElementById(f.errorId);
+      if (!f.check(el.value)) {
+        el.classList.add('error');
+        err.style.display = 'block';
+        valid = false;
+      } else {
+        el.classList.remove('error');
+        err.style.display = 'none';
+      }
+    });
+    return valid;
+  }
+
+  function handleSubmit() {
+    if (!validate()) return;
+
+    const data = {
+      timestamp: new Date().toISOString(),
+      name: document.getElementById('name').value.trim(),
+      school: document.getElementById('school').value.trim(),
+      location: document.getElementById('location').value.trim(),
+      grade: document.getElementById('grade').value,
+      email: document.getElementById('email').value.trim(),
+      source: document.getElementById('source').value || 'Not specified',
+    };
+
+    fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success-section').style.display = 'block';
+    })
+    .catch(() => {
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success-section').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>
