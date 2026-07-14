@@ -163,7 +163,7 @@
       </div>
       <div class="action-box">
   <div class="action-box-label">How to build your map on Google My Maps</div>
-  <ul style="list-style-type: decimal;">
+  <ul class="howto-list">
     <li>Go to <a href="https://www.google.com/maps/d/u/0/" target="_blank">Google My Maps</a> and create a new map</li>
     <li>Search up a location or address</li>
     <li>Click on the result you're looking for, then press the green pin icon on the map</li>
@@ -172,6 +172,19 @@
     <li>Keep adding locations to the same layer, or press "Add layer" to start a new category of location (e.g., CVS pharmacies vs. Walgreens pharmacies)</li>
   </ul>
 </div>
+
+<style>
+.howto-list {
+  list-style: none;
+  counter-reset: howto-step;
+}
+.howto-list li {
+  counter-increment: howto-step;
+}
+.howto-list li::before {
+  content: counter(howto-step) "." !important;
+}
+</style>
       <div class="erica-tip">
         <div class="erica-tip-icon">💬</div>
         <div class="erica-tip-text"><strong>My note</strong>I visited 80+ pharmacies across Cleveland and Boston. Prices ranged from $44.99 to $130 for the exact same medication, and in some places, it was hidden or locked away. I didn't expect that. That surprise became the data that started my advocacy journey.</div>
